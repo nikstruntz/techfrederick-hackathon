@@ -48,7 +48,7 @@
             <a class="list-group-item list-group-item-action bg-light" href="{% url 'profile' %}"><i class="fas fa-id-badge mr-1"></i> Profile</a>
             <a class="list-group-item list-group-item-action bg-light" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a>
             {% if user.is_superuser %}
-            <a class="list-group-item list-group-item-action bg-light" href="../admin"><i class="fas fa-globe-americas mr-1"></i> Admin</a>
+            <a class="list-group-item list-group-item-action bg-light" href="/admin"><i class="fas fa-globe-americas mr-1"></i> Admin</a>
             {% endif %}
           {% else %}
             <a class="list-group-item list-group-item-action bg-light" href="{% url 'login' %}"><i class="fas fa-sign-in-alt mr-1"></i> Login</a>
