@@ -15,6 +15,10 @@ ul {
   margin: 0;
 }
 
+label {
+  font-weight: bold !important;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }
