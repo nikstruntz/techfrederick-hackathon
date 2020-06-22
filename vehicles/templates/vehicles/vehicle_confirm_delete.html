@@ -1,0 +1,21 @@
+{% extends 'equipment/base.html' %}
+{% block content %}
+    <div class="title-container">
+        <h1><i class="fas fa-trash-alt mr-1"></i> Delete Vehicle</h1>
+        <p>Delete a Vehicle.</p>
+    </div>
+    <br />
+    <div class="content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <h3>Are your sure you want to delete the vehicle "{{ object.unit }}"?</h3>
+                <p>You will not be able to retrieve these records back.</p>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit"><i class="fas fa-trash-alt mr-1"></i> Yes, Delete</button>
+                <a class="btn btn-outline-secondary ml-3" href="{% url 'vehicles-detail' object.id %}"><i class="fas fa-window-close mr-1"></i> Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

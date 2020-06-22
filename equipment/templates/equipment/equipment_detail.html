@@ -1,0 +1,40 @@
+{% extends 'equipment/base.html' %}
+{% block content %}
+    <div class="title-container">
+      <h1><i class="fas fa-search"></i> View Vehicle Equipment</h1>
+      <p>Read the details of the equipment on vehicle {{ object.unit }}.</p>
+    </div>
+    <br />
+    <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fas fa-box-open"></i> {{ object.unit }}</h2>
+          <br />
+          <h4>Details</h4>
+          <hr/>
+          <div class="row">
+              <div class="col-sm">
+                <p><b><i class="fas fa-tachometer-alt mr-1"></i> Mileage:</b> {{object.mileage}}</p>
+                <p><b><i class="fas fa-gas-pump mr-1"></i> Fuel:</b> {{object.fuel}}</p>
+                <p><b><i class="fas fa-exclamation-triangle mr-1"></i> Emergency Lights:</b> {{object.emergency_lights}}</p>
+                <p><b><i class="fas fa-car mr-1"></i> Driving Lights:</b> {{object.driving_lights}}</p>
+                <p><b><i class="fas fa-shopping-bag mr-1"></i> Red Bag:</b> {{object.red_bag}}</p>
+                <p><b><i class="fas fa-laptop-medical mr-1"></i> LP 15:</b> {{object.lp_fifteen}}</p>
+              </div>
+              <div class="col-sm">
+                <p><b><i class="fas fa-cogs mr-1"></i> Transmission Box:</b> {{object.trans_box}}</p>
+                <p><b><i class="fas fa-medkit mr-1"></i> BLS Bag:</b> {{object.bls_bag}}</p>
+                <p><b><i class="fas fa-medkit mr-1"></i> RTF Bags:</b> {{object.rtf_bags}}</p>
+                <p><b><i class="fas fa-shopping-bag mr-1"></i> Suction:</b> {{object.suction}}</p>
+                <p><b><i class="fas fa-lungs mr-1"></i> Oxygen Bag:</b> {{object.oxygen_bag}}</p>
+                <p><b><i class="fas fa-signature mr-1"></i> Provider Signature:</b> {{object.signature}}</p>
+              </div>
+          </div>
+          <br />
+          <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'equipment-update' object.id%}"><i class="fas fa-pen-alt mr-1"></i> Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1 ml-2" href="{% url 'equipment-delete' object.id%}"><i class="fas fa-trash-alt mr-1"></i> Delete</a>
+          </div>
+        </div>
+    </div>
+      <br />
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'equipment/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="title-container">
+        <h1><i class="fas fa-pen-alt mr-1"></i> Narcotics</h1>
+        <p>Create or Update Drugs.</p>
+    </div>
+    <br />
+    <div class="content-section" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'equipment/base.html' %}
+{% block content %}
+    <div class="title-container">
+      <h1><i class="fas fa-search"></i> View Narcotic</h1>
+      <p>Read the details of the equipment on narcotic {{ narcotic.unit }}.</p>
+    </div>
+    <br />
+    <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fas fa-capsules mr-1"></i> {{ narcotic.unit }}</h2>
+          <br />
+          <h4>Details</h4>
+          <hr/>
+          <div class="row">
+              <div class="col-sm">
+                <p><b><i class="fas fa-calendar-day mr-1"></i> Date:</b> {{ narcotic.date }}</p>
+                <p><b><i class="fas fa-stopwatch mr-1"></i> Shift Hours:</b> {{ narcotic.shift_hours }}</p>
+                <p><b><i class="fas fa-pump-medical mr-1"></i> Morphine in Stock:</b> {{ narcotic.morphine_in_stock }}</p>
+                <p><b><i class="fas fa-prescription-bottle-alt mr-1"></i> Ketamine in Stock (100mg/ml):</b> {{ narcotic.ketamine_in_stock_hundred_miligram_millileter }}</p>
+                <p><b><i class="fas fa-syringe mr-1"></i> Ketamine in Stock (10mg/ml):</b> {{ narcotic.ketamine_in_stock_ten_miligram_millileter }}</p>
+                <p><b><i class="fas fa-vial mr-1"></i> Versed in Stock:</b> {{ narcotic.versed_in_stock }}</p>
+              </div>
+              <div class="col-sm">
+                <p><b><i class="fas fa-tape mr-1"></i> Seal #:</b> {{ narcotic.seal_number }}</p>
+                <p><b><i class="fas fa-exclamation-triangle mr-1"></i> Incident #:</b> {{ narcotic.incident_number }}</p>
+                <p><b><i class="fas fa-prescription-bottle mr-1"></i> Medication Used:</b> {{ narcotic.medication_used }}</p>
+                <p><b><i class="fas fa-file-medical mr-1"></i> Medication Amount (mg):</b> {{ narcotic.medication_amount_mg }}</p>
+                <p><b><i class="fas fa-person-booth mr-1"></i> Provider Name:</b> {{ narcotic.provider_name }}</p>
+                <p><b><i class="fas fa-signature mr-1"></i> Waste Witness Initials:</b> {{ narcotic.waste_witness_initials }}</p>
+                <p><b><i class="fas fa-file-signature mr-1"></i> Waste Amount (mg):</b> {{ narcotic.waste_amount_mg }}</p>
+              </div>
+          </div>
+          <br />
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'narcotics-update' narcotic.id %}"><i class="fas fa-pen-alt mr-1"></i> Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1 ml-2" href="{% url 'narcotics-delete' narcotic.id %}"><i class="fas fa-trash-alt mr-1"></i> Delete</a>
+        </div>
+        </div>
+    </div>
+      <br />
+{% endblock content %}

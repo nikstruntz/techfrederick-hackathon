@@ -1,0 +1,36 @@
+{% extends 'equipment/base.html' %}
+{% block content %}
+    <div class="title-container">
+      <h1><i class="fas fa-search"></i> View Drug</h1>
+      <p>Read the details of the equipment on drug {{ drug.unit }}.</p>
+    </div>
+    <br />
+    <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fas fa-tablets mr-1"></i> {{ drug.unit }}</h2>
+          <br />
+          <h4>Details</h4>
+          <hr/>
+          <div class="row">
+              <div class="col-sm">
+                <p><b><i class="fas fa-calendar-day mr-1"></i> Date:</b> {{ drug.date }}</p>
+                <p><b><i class="fas fa-stopwatch mr-1"></i> Shift Hours:</b> {{ drug.shift_hours }}</p>
+                <p><b><i class="fas fa-medkit mr-1"></i> RSI Kit #1 Seal #:</b> {{ drug.rsi_kit_seal_number }}</p>
+                <p><b><i class="fas fa-clock mr-1"></i> Expiration Date:</b> {{ drug.expiration_date }}</p>
+              </div>
+              <div class="col-sm">
+                <p><b><i class="fas fa-exclamation-triangle mr-1"></i> Incident #:</b> {{ drug.incident_number }}</p>
+                <p><b><i class="fas fa-hospital mr-1"></i> Hospital #:</b> {{drug.hospital_number }}</p>
+                <p><b><i class="fas fa-user-clock mr-1"></i> Provider Name:</b> {{ drug.provider_name }}</p>
+                <p><b><i class="fas fa-id-card mr-1"></i> Contact B/C Cole - Date and Time:</b> {{ drug.contact_bc_cole }}</p>
+              </div>
+          </div>
+          <br />
+          <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'drugs-update' drug.id %}"><i class="fas fa-pen-alt mr-1"></i> Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1 ml-2" href="{% url 'drugs-delete' drug.id %}"><i class="fas fa-trash-alt mr-1"></i> Delete</a>
+          </div>
+        </div>
+    </div>
+      <br />
+{% endblock content %}

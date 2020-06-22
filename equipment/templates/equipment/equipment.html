@@ -1,0 +1,22 @@
+{% extends 'equipment/base.html' %}
+{% block content %}
+    <div class="title-container">
+      <h1><i class="fas fa-boxes"></i> Equipment <a class="ml-3" style="font-size: 30px;color: #444444;" href="{% url 'equipment-create' %}"><i class="fas fa-plus"></i></a></h1>
+      <p>Look at updates on Vehicle Equipment.</p>
+    </div>
+    <br />
+      {% for equip in equipment %}
+      <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+        <div class="card-header">
+          <b>{{ equip.date }}</b>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title"><i class="fas fa-box-open"></i> {{ equip.unit }}</h3>
+          <p class="card-text"><b><i class="fas fa-tachometer-alt mr-1"></i> Mileage:</b> {{ equip.mileage }}</p>
+          <p class="card-text"><b><i class="fas fa-gas-pump mr-1"></i> Fuel:</b> {{ equip.fuel }}</p>
+          <a href="{% url 'equipment-detail' equip.id %}" class="btn btn-primary"><i class="fas fa-search"></i> View</a>
+        </div>
+      </div>
+      <br />
+      {% endfor %}
+{% endblock content %}

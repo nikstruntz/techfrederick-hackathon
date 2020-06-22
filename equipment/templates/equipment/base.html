@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'equipment/main.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="ico" href="{% static 'equipment/favicon.ico' %}">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/bec992c53a.js" crossorigin="anonymous"></script>
+
+    <!-- Title -->
+    {% if title %}
+        <title>{{ title }} | EMS Supervisors</title>
+    {% else %}
+        <title>EMS Supervisors</title>
+    {% endif %}
+  </head>
+  <body>
+
+    <!-- Wrapper for the Sidebar -->
+    <div class="d-flex" id="wrapper">
+
+      <!-- Sidebar -->
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading"><b>EMS Supervisors</b></div>
+        <br />
+        <div class="list-group list-group-flush">
+          <h4 class="nav-heading"><i class="fas fa-route mr-1"></i> Navigation</h4>
+          <a class="list-group-item list-group-item-action bg-light" href="{% url 'home-page' %}"><i class="fas fa-home mr-1"></i> Home</a>
+          <a class="list-group-item list-group-item-action bg-light" href="{% url 'vehicles-home' %}"><i class="fas fa-truck mr-1"></i> Vehicles</a>
+          <a class="list-group-item list-group-item-action bg-light" href="{% url 'equipment-home' %}"><i class="fas fa-boxes mr-1"></i> Equipment</a>
+          <a class="list-group-item list-group-item-action bg-light" href="{% url 'drugs-home' %}"><i class="fas fa-tablets mr-1"></i> Drugs</a>
+          <a class="list-group-item list-group-item-action bg-light" href="{% url 'narcotics-home' %}"><i class="fas fa-capsules mr-1"></i> Narcotics</a>
+          <br />
+          <br />
+          <h4 class="nav-heading"><i class="fas fa-user-circle mr-1"></i> Account</h4>
+          {% if user.is_authenticated %}
+            <a class="list-group-item list-group-item-action bg-light" href="{% url 'profile' %}"><i class="fas fa-id-badge mr-1"></i> Profile</a>
+            <a class="list-group-item list-group-item-action bg-light" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a>
+            {% if user.is_superuser %}
+            <a class="list-group-item list-group-item-action bg-light" href="../admin"><i class="fas fa-globe-americas mr-1"></i> Admin</a>
+            {% endif %}
+          {% else %}
+            <a class="list-group-item list-group-item-action bg-light" href="{% url 'login' %}"><i class="fas fa-sign-in-alt mr-1"></i> Login</a>
+            <a class="list-group-item list-group-item-action bg-light" href="{% url 'register' %}"><i class="fas fa-registered mr-1"></i> Register</a>
+          {% endif %}
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+  
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <main role="main" class="container">
+          <br />
+          <div class="container">
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}">
+                      {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+              {% block content %}{% endblock %}
+          </div>
+        </main>
+      </div>
+      <!-- /#page-content-wrapper -->
+  
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

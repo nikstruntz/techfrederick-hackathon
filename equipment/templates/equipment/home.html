@@ -1,0 +1,95 @@
+{% extends 'equipment/base.html' %}
+{% block content %}
+    <div class="title-container">
+        <h1><i class="fas fa-home mr-1"></i> Home Page</h1>
+        <p>Welcome to the management dashboard for the Frederick County Division of Fire & Rescue Services (DFRS)!</p>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col">
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+              <div class="card-header">
+                <b>Inventory Check</b>
+              </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <br />
+                      <h1 class="home-icon"><i class="fas fa-truck ml-3"></i></h1>
+                    </div>
+                    <div class="col-sm-9">
+                      <h4 class="card-title">Vehicles</h4>
+                      <p class="card-text">Manage all of the vehicle inventory.</p>
+                      <a href="{% url 'vehicles-home' %}" class="btn btn-primary">Go <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col">
+          <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+            <div class="card-header">
+              <b>Inventory Check</b>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <br />
+                  <h1 class="home-icon"><i class="fas fa-capsules ml-3"></i></h1>
+                </div>
+                <div class="col-sm-9">
+                  <h4 class="card-title">Narcotics</h4>
+                  <p class="card-text">Manage all of the narcotics inventory.</p>
+                  <a href="{% url 'narcotics-home' %}" class="btn btn-primary">Go <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+        <div class="row">
+          <div class="col">
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+              <div class="card-header">
+                <b>Inventory Check</b>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <br />
+                    <h1 class="home-icon"><i class="fas fa-boxes ml-3"></i></h1>
+                  </div>
+                  <div class="col-sm-9">
+                    <h4 class="card-title">Equipment</h4>
+                    <p class="card-text">Manage all of the equipment inventory.</p>
+                    <a href="{% url 'equipment-home' %}" class="btn btn-primary">Go <i class="fas fa-arrow-right ml-1"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;">
+              <div class="card-header">
+                <b>Inventory Check</b>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <br />
+                    <h1 class="home-icon"><i class="fas fa-tablets ml-3"></i></h1>
+                  </div>
+                  <div class="col-sm-9">
+                    <h4 class="card-title">Drugs</h4>
+                    <p class="card-text">Manage all of the drug inventory.</p>
+                    <a href="{% url 'drugs-home' %}" class="btn btn-primary">Go <i class="fas fa-arrow-right ml-1"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock content %}
